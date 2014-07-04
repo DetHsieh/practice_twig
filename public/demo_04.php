@@ -1,5 +1,5 @@
 <?php
-$loader = require __DIR__ . '/../vendor/autoload.php';
+$autoloader = require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../lib/init.php';
 
 $func = new Twig_SimpleFunction('navBar', function ($num) {

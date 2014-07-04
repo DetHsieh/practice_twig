@@ -1,5 +1,5 @@
 <?php
-$loader = require __DIR__ . '/../vendor/autoload.php';
+$autoloader = require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../lib/init.php';
 
 $loader = new Twig_Loader_Filesystem(__DIR__ . '/../templates');
