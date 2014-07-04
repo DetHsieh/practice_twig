@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {{ parent() }}
+
+    {% autoescape 'js' %}
+    <script type="text/javascript">
+    <!--
+    $(function() {
+        $("td a").click(function(e) {
+            e.preventDefault();
+            String.prototype.times = function(n) { //IE6 530-640 FF3 400~550 IE8 840 ~1110   chrome 600~1000
+                return (new Array(n+1)).join(this);
+            };
+
+            var num = $(this).data('num');
+            alert('喵'.times(num));
+        });
+    });
+    //-->
+    </script>
+    {% endautoescape %}
+{% endblock %}
+
+{% block container %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>etc.</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {# 愉快的rows要開始噴資料了。v。 #}
+            {% for row in rows %}
+                {% if 1 == row.sex %}
+                    {% set sex = '男' %}
+                {% else %}
+                    {% set sex = '女' %}
+                {% endif %}
+
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.title }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ sex }}</td>
+                <td> <a href="#" class="btn btn-primary" data-num="{{ loop.index }}">喵喵</a> </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
