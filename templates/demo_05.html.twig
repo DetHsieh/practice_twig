@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <title>Twig Demo</title>
+</head>
+<body>
+    <p>Hello world 。v。a</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>etc.</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {# 愉快的rows要開始噴資料了。v。 #}
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.type }}</td>
+                <td>{{ row.name }}</td>
+                <td> <a href="#" class="btn btn-primary">喵喵</a> </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <hr />
+
+    {{ navBar(num)|raw }} {# Worked!! #}
+
+</body>
+</html>
